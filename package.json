@@ -1,0 +1,32 @@
+{
+  "name": "homemcp-gateway",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A prototype Home Assistant tool policy gateway with dry-run behavior and audit logging.",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "demo": "bash scripts/demo.sh",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "postinstall": "sigmap",
+    "map:refresh": "sigmap",
+    "map:report": "sigmap --report --json",
+    "map:watch": "sigmap daemon start",
+    "map:setup": "sigmap --setup"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.0",
+    "hass-ts": "github:manojmallick/hass-ts#5cce3e8d5f785739564fe3b7d47b9668d275024c",
+    "hono": "^4.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.9.0",
+    "vitest": "^2.0.0",
+    "sigmap": "^8.18.0"
+  }
+}
